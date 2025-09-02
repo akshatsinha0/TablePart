@@ -138,6 +138,34 @@ label {
   background: #fff;
 }
 
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.code-header h2 {
+  margin: 0;
+}
+
+.save-btn {
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+}
+
+.save-btn:hover:not(:disabled) {
+  background: #333;
+  border-color: #333;
+}
+
+.save-btn:disabled {
+  background: #666;
+  border-color: #666;
+  opacity: 0.7;
+}
+
 .code-container {
   position: relative;
 }
@@ -170,12 +198,14 @@ label {
   font-family: monospace;
   font-size: 1.2rem;
   color: #000;
-  animation: blink 1s infinite;
+  animation: smoothBlink 0.8s infinite;
+  pointer-events: none;
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+@keyframes smoothBlink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 
@@ -197,6 +227,16 @@ label {
   
   .btn {
     width: 200px;
+  }
+  
+  .code-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .save-btn {
+    width: 100%;
   }
   
   .grid {

@@ -216,26 +216,42 @@ export class App implements AfterViewInit {
 
     this.generatedCode = fullHtml;
     this.startTypewriterAnimation(fullHtml);
-    this.downloadCode(fullHtml);
+  }
+
+  saveCode() {
+    if (this.generatedCode) {
+      this.downloadCode(this.generatedCode);
+    }
   }
 
   private startTypewriterAnimation(content: string) {
     this.displayedCode = '';
     this.isTyping = true;
     let index = 0;
-    const speed = 20;
-
+    const baseSpeed = 15;
+    
     const typeNextChar = () => {
       if (index < content.length) {
-        this.displayedCode += content.charAt(index);
+        const char = content.charAt(index);
+        this.displayedCode += char;
         index++;
+        
+        let speed = baseSpeed;
+        if (char === '\n') {
+          speed = baseSpeed * 2;
+        } else if (char === ' ') {
+          speed = baseSpeed * 0.5;
+        } else if ('<>=/"'.includes(char)) {
+          speed = baseSpeed * 0.8;
+        }
+        
         setTimeout(typeNextChar, speed);
       } else {
         this.isTyping = false;
       }
     };
 
-    typeNextChar();
+    setTimeout(typeNextChar, 300);
   }
 
   private downloadCode(content: string) {

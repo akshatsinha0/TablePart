@@ -46,7 +46,15 @@
 
   @if (generatedCode) {
     <div class="code-section">
-      <h2>Generated Code</h2>
+      <div class="code-header">
+        <h2>Generated Code</h2>
+        <button 
+          (click)="saveCode()" 
+          class="btn save-btn"
+          [disabled]="isTyping">
+          Save Code
+        </button>
+      </div>
       <div class="code-container">
         <textarea 
           readonly 
