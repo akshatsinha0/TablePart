@@ -160,11 +160,7 @@ label {
   border-color: #333;
 }
 
-.save-btn:disabled {
-  background: #666;
-  border-color: #666;
-  opacity: 0.7;
-}
+
 
 .code-container {
   position: relative;
@@ -187,26 +183,7 @@ label {
   border-color: #000;
 }
 
-.code-output.typing {
-  caret-color: transparent;
-}
 
-.typing-cursor {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  font-family: monospace;
-  font-size: 1.2rem;
-  color: #000;
-  animation: smoothBlink 0.8s infinite;
-  pointer-events: none;
-}
-
-@keyframes smoothBlink {
-  0%, 45% { opacity: 1; }
-  50%, 95% { opacity: 0; }
-  100% { opacity: 1; }
-}
 
 
 

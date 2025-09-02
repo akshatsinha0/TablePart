@@ -50,21 +50,16 @@
         <h2>Generated Code</h2>
         <button 
           (click)="saveCode()" 
-          class="btn save-btn"
-          [disabled]="isTyping">
+          class="btn save-btn">
           Save Code
         </button>
       </div>
       <div class="code-container">
         <textarea 
           readonly 
-          [value]="displayedCode" 
-          class="code-output"
-          [class.typing]="isTyping">
+          [value]="generatedCode" 
+          class="code-output">
         </textarea>
-        @if (isTyping) {
-          <div class="typing-cursor">|</div>
-        }
       </div>
     </div>
   }
