@@ -1,0 +1,63 @@
+<div class="container">
+  <h1>Table Builder</h1>
+  
+  <div class="controls">
+    <div class="input-group">
+      <label for="gridSize">Grid Size (N×N):</label>
+      <input 
+        id="gridSize" 
+        type="number" 
+        [(ngModel)]="gridSize" 
+        min="1" 
+        max="20"
+        class="size-input">
+      <button (click)="buildGrid()" class="btn">Build Grid</button>
+    </div>
+  </div>
+
+  <div class="grid-section">
+    <div class="grid-container" #gridContainer>
+      <div class="grid" [style.grid-template-columns]="'repeat(' + gridSize() + ', 1fr)'">
+        @for (cell of cells(); track cell.id) {
+          @if (isCellVisible(cell.row, cell.col)) {
+            <div 
+              [class]="getCellClass(cell.row, cell.col)"
+              [attr.data-row]="cell.row"
+              [attr.data-col]="cell.col"
+              (mousedown)="onCellMouseDown($event, cell.row, cell.col)"
+              (mouseenter)="onCellMouseEnter(cell.row, cell.col)">
+              {{ cell.row }},{{ cell.col }}
+            </div>
+          }
+        }
+      </div>
+    </div>
+
+    <div class="actions">
+      <button (click)="mergeSelection()" class="btn" [disabled]="currentSelection.length === 0">
+        Merge Selection
+      </button>
+      <button (click)="reset()" class="btn">Reset</button>
+      <button (click)="generateCode()" class="btn" [disabled]="mergedRegions.length === 0">
+        Generate Code
+      </button>
+    </div>
+  </div>
+
+  @if (generatedCode) {
+    <div class="code-section">
+      <h2>Generated Code</h2>
+      <div class="code-container">
+        <textarea 
+          readonly 
+          [value]="displayedCode" 
+          class="code-output"
+          [class.typing]="isTyping">
+        </textarea>
+        @if (isTyping) {
+          <div class="typing-cursor">|</div>
+        }
+      </div>
+    </div>
+  }
+</div>

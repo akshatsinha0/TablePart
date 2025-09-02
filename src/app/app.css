@@ -1,0 +1,211 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Boogaloo", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #000;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+h2 {
+  color: #000;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.controls {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+label {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.size-input {
+  padding: 8px 12px;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  font-size: 1.1rem;
+  width: 80px;
+  text-align: center;
+}
+
+.size-input:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 2px #000;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+  background: #000;
+  color: #fff;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.grid-section {
+  margin-bottom: 30px;
+}
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid #000;
+  background: #fff;
+}
+
+.grid {
+  display: grid;
+  gap: 2px;
+  border: 2px solid #000;
+  padding: 10px;
+  background: #000;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.cell:hover {
+  background: #f0f0f0;
+}
+
+.cell.merged {
+  background: #e0e0e0;
+}
+
+.cell.selected {
+  background: #d0d0d0;
+  border-color: #000;
+  border-width: 2px;
+}
+
+.cell.skip {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.code-section {
+  border: 2px solid #000;
+  padding: 20px;
+  background: #fff;
+}
+
+.code-container {
+  position: relative;
+}
+
+.code-output {
+  width: 100%;
+  height: 300px;
+  padding: 15px;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  font-family: monospace;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.code-output:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.code-output.typing {
+  caret-color: transparent;
+}
+
+.typing-cursor {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: #000;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 200px;
+  }
+  
+  .grid {
+    padding: 5px;
+  }
+  
+  .cell {
+    width: 40px;
+    height: 40px;
+    font-size: 0.7rem;
+  }
+}

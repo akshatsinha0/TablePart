@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
+
+.boogaloo-regular {
+  font-family: "Boogaloo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background: #fff;
+  color: #000;
+  font-family: "Boogaloo", sans-serif;
+}
+
+button {
+  font-family: "Boogaloo", sans-serif;
+}
+
+input {
+  font-family: "Boogaloo", sans-serif;
+}
+
+textarea {
+  font-family: "Boogaloo", sans-serif;
+}
